@@ -4,7 +4,8 @@
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(135deg, #2a0845 0%, #6441a5 100%); /* Gradient background */
+    background: url('pixel_background.gif') repeat; /* Example pixel art background */
+    background-size: 100px; /* Adjust based on your pixel art tile size */
     color: #fff;
     display: flex;
     justify-content: center;
@@ -13,18 +14,25 @@ body {
     overflow: hidden; /* Prevent overflow issues with animations */
 }
 
+/* Placeholder for pixel art background - replace with actual image paths */
+body {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAASVJREFUWEft1rEOwyAMBEDV8j/3p5/6kHwYEC4dF04z9GjP/PjXvSgO8h660a+rXwAQLQoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAoUIAP71dKj33wH8H3547wAAAABJRU5ErkJggg=='); /* Simple pixel pattern */
+    background-size: 32px; /* Size of the pattern tile */
+}
+
+
 #game-container {
     width: 90%;
-    max-width: 800px; /* Max width for desktop */
+    max-width: 800px;
     height: 90vh;
-    max-height: 600px; /* Max height for desktop */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border: 5px solid #fff; /* Pixel border */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.3); /* Glow effect */
+    max-height: 600px;
+    background-color: rgba(0, 0, 0, 0.7); /* More opaque background */
+    border: 5px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 10px rgba(0, 255, 255, 0.4);
     display: flex;
     flex-direction: column;
-    position: relative; /* Needed for absolute positioned overlays */
-    overflow: hidden; /* Hide overflow */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Top Menu Bar Styles */
@@ -33,103 +41,134 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     border-bottom: 3px solid #fff;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-    z-index: 10; /* Ensure menu is on top */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+    z-index: 10;
 }
 
 .menu-item {
     padding: 5px 10px;
     text-align: center;
-    font-size: 0.8em; /* Smaller font for menu */
+    font-size: 0.7em; /* Smaller font for menu */
+    color: #00ffff; /* Cyan color */
+    text-shadow: 1px 1px #000;
 }
 
 .clickable {
     cursor: pointer;
-    transition: all 0.1s ease; /* Smooth transitions for interactions */
+    transition: all 0.1s ease;
 }
 
 .clickable:hover {
-    text-shadow: 0 0 8px #fff; /* Text glow on hover */
+    text-shadow: 0 0 10px #fff, 0 0 10px #00ffff; /* Combined glow */
+    color: #fff;
 }
 
 .clickable:active {
-    transform: scale(0.95); /* Slight press effect */
+    transform: scale(0.95);
 }
 
 /* Game Area Styles */
 #game-area {
-    flex-grow: 1; /* Take up remaining space */
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Needed for click feedback positioning */
+    position: relative;
+    overflow: hidden; /* Hide click feedback particles outside */
+     /* Placeholder pixel art for game area */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAADdJREFUWEft1rEOgDAIBEDx/5+2w8oQk/pT7vQcWpA/Fj+R8R0gBAJAEggAQSAABAJAEggAQSAABAJAEggAQSAABAJAEggA+E6HAAc3h6G+AAAAAElFTkSuQmCC'); /* Simple darker pixel pattern */
+    background-size: 64px;
 }
 
 #click-target {
     width: 150px;
     height: 150px;
-    background-color: #ff4136; /* Red color */
-    border: 5px solid #fff;
-    border-radius: 10px; /* Slightly rounded pixel corners */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
+    /* Replace with your pixel art image */
+    background: url('pixel_click_target.png') no-repeat center center;
+    background-size: contain; /* Scale pixel art */
+    /* Remove background-color if using image */
+    /* background-color: #ff4136; */
+    border: none; /* No default border if using art */
+    /* border: 5px solid #fff; Remove if using art */
+    border-radius: 0; /* Pixel art usually doesn't have rounded corners */
+    /* Removed flex properties if using a background image */
+    /* display: flex; justify-content: center; align-items: center; */
+    font-size: 0; /* Hide text if using image */
     text-align: center;
-    text-shadow: 2px 2px #000; /* Simple text shadow */
+    text-shadow: none; /* Remove text shadow if no text */
     position: relative;
-    overflow: hidden; /* Hide overflow for feedback particles */
-    box-shadow: 0 0 15px rgba(255, 65, 54, 0.8); /* Glow effect */
+    overflow: visible; /* Allow feedback to show around target */
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); /* Orange glow effect */
+    transition: transform 0.1s ease, box-shadow 0.2s ease; /* Smooth transform and shadow */
 }
+
+/* Placeholder for pixel art click target */
+#click-target {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGNwL3AAAAAXNSR0IArs4c6QAAAAZQTFRF/2kA/2kAXO9XWAAAAAJ0Uk5TAP9bkSKFAAAAUklEQVRIx2NgGAWjYBSMglEwCkbBKDgDiAA/s3BMA/B2BgYGDwYwMDAwMAEYGIglGAWjYBSMglEwCkbBKDgDGP1hYGD4+8mN/x8wAACeB7bXw3Gk+wAAAABJRU5ErkJggg==') no-repeat center center;
+    background-size: contain;
+    width: 150px;
+    height: 150px;
+    font-size: 0; /* Hide default text */
+    text-shadow: none;
+    color: transparent; /* Hide default text */
+}
+
 
 #click-target:active {
-    background-color: #e02a1d; /* Darker red when active */
-    box-shadow: 0 0 10px rgba(255, 65, 54, 0.5);
+    transform: scale(0.9); /* More pronounced press effect */
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5); /* Less glow when pressed */
 }
 
-/* Click Feedback Animation */
-#click-feedback {
+/* Container for click feedback animations */
+#feedback-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2em;
-    color: yellow; /* Feedback color */
-    text-shadow: 2px 2px #000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none; /* Don't block clicks */
-    opacity: 0;
-    animation: fade-up 0.8s ease-out; /* Animation applied by JS */
+    overflow: hidden; /* Keep particles within game area */
 }
 
-@keyframes fade-up {
+/* Click Feedback Animation (Particles) */
+.click-feedback-particle {
+    position: absolute;
+    width: 5px; /* Size of the pixel particle */
+    height: 5px;
+    background-color: yellow; /* Color of the particle */
+    box-shadow: 0 0 5px yellow;
+    opacity: 1;
+    animation: particle-spread 0.8s ease-out forwards;
+}
+
+@keyframes particle-spread {
     0% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
     100% {
         opacity: 0;
-        transform: translate(-50%, -150%) scale(1.5);
+        transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) scale(0); /* Use CSS variables for random direction */
     }
 }
 
-
-/* Overlay Styles (Shop, About, etc.) */
+/* Overlay Styles (Shop, Achievements, About, etc.) */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.95); /* Very dark overlay */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 20; /* Ensure overlays are on top of game */
+    z-index: 20;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 
 .overlay.visible {
@@ -138,21 +177,27 @@ body {
 }
 
 .overlay-content {
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.98); /* Almost black content */
     border: 3px solid #fff;
     padding: 20px;
-    max-width: 90%;
-    max-height: 80%;
-    overflow-y: auto; /* Allow scrolling for shop items */
+    width: 90%; /* Use width instead of max-width */
+    max-width: 700px; /* Maximum width */
+    height: 85%; /* Use height instead of max-height */
+    max-height: 550px; /* Maximum height */
+    overflow-y: auto;
     position: relative;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
     text-align: center;
+    /* Pixel style border corners */
+    box-sizing: border-box; /* Include border in dimensions */
 }
 
 .overlay-content h2 {
     margin-top: 0;
-    color: #00ffff; /* Cyan color for titles */
+    color: #00ffff;
     text-shadow: 2px 2px #000;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 .close-button {
@@ -166,6 +211,7 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     line-height: 1;
+    z-index: 25; /* Ensure close button is on top */
 }
 
 .close-button:hover {
@@ -178,24 +224,25 @@ body {
 #shop-items {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between shop items */
+    gap: 15px;
     margin-top: 20px;
 }
 
 .shop-item {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #00ff00; /* Green border */
     padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9em;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow for items */
-    transition: transform 0.2s ease;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.6); /* Green glow */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .shop-item:hover {
-    transform: translateY(-3px); /* Slight lift effect on hover */
+    transform: translateY(-5px); /* More pronounced lift */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter background */
 }
 
 .item-info {
@@ -206,7 +253,7 @@ body {
 
 .item-info h3 {
     margin: 0 0 5px 0;
-    color: #00ff00; /* Green color for item names */
+    color: #00ff00;
     text-shadow: 1px 1px #000;
     font-size: 1em;
 }
@@ -218,7 +265,7 @@ body {
 }
 
 .buy-button {
-    background-color: #007bff; /* Blue color for buy button */
+    background-color: #007bff;
     border: 2px solid #fff;
     color: #fff;
     padding: 8px 15px;
@@ -226,14 +273,106 @@ body {
     font-size: 0.8em;
     cursor: pointer;
     text-shadow: 1px 1px #000;
+    transition: background-color 0.1s ease;
 }
 
 .buy-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
+}
+
+.buy-button:active {
+    background-color: #004085;
 }
 
 .buy-button:disabled {
     background-color: #555;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.6;
+}
+
+/* Achievements List Styles */
+#achievement-list {
+     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.achievement-item {
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background */
+    border: 2px solid #555; /* Default border */
+    padding: 10px;
+    font-size: 0.8em;
+    color: #ccc; /* Default text color */
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.achievement-item.unlocked {
+    border-color: #ff00ff; /* Magenta border for unlocked */
+    color: #fff; /* White text for unlocked */
+    background-color: rgba(255, 0, 255, 0.1); /* Magenta background */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6); /* Magenta glow */
+}
+
+.achievement-item h3 {
+    margin: 0 0 5px 0;
+    color: #ff00ff; /* Magenta title for unlocked */
+    text-shadow: 1px 1px #000;
+    font-size: 1em;
+}
+
+.achievement-item.unlocked h3 {
+     color: #fff; /* White title for unlocked */
+}
+
+.achievement-item p {
+    margin: 0;
+    font-size: 0.7em;
+    color: #aaa;
+}
+
+.achievement-item.unlocked p {
+     color: #eee;
+}
+
+
+/* Achievement Notification Styles */
+#achievement-notification {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 255, 0.9); /* Magenta background */
+    border: 3px solid #fff;
+    padding: 15px 25px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+    z-index: 30; /* On top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(50px); /* Start slightly below */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#achievement-notification.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Slide up */
+}
+
+#achievement-notification h3 {
+    margin: 0 0 5px 0;
+    color: #ffff00; /* Yellow title */
+    font-size: 1.1em;
+}
+
+#notification-text {
+    margin: 0;
+    color: #eee;
 }
