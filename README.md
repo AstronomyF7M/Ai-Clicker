@@ -4,6 +4,7 @@ Welcome to AI CLICKER
 its all Ai...
 
 
+this probably sucks
 
 
 
