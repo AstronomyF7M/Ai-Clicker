@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Clicker Game</title>
+    <title>Advanced Pixel Clicker</title>
     <!-- Google Fonts: Pixel font for theme -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Link to CSS file -->
@@ -15,7 +15,7 @@
         <header id="top-menu">
             <div class="menu-item">Score: <span id="score">0</span></div>
             <div class="menu-item clickable" id="shop-button">Shop</div>
-            <!-- Add more menu items here if needed -->
+            <div class="menu-item clickable" id="achievements-button">Achievements</div>
             <div class="menu-item clickable">About</div>
         </header>
 
@@ -23,29 +23,47 @@
         <main id="game-area">
             <!-- The main clickable element -->
             <div id="click-target" class="clickable">
-                Click Me!
-                <!-- Placeholder for click feedback animation -->
-                <div id="click-feedback"></div>
+                <!-- Pixel art will go here or as background -->
             </div>
+
+            <!-- Container for click feedback animations -->
+            <div id="feedback-container"></div>
+
         </main>
 
         <!-- Shop Overlay -->
         <div id="shop-overlay" class="overlay">
-            <div id="shop-content">
+            <div id="shop-content" class="overlay-content">
                 <h2>Shop</h2>
                 <button id="close-shop" class="clickable close-button">X</button>
-
                 <div id="shop-items">
                     <!-- Shop items will be populated here by JavaScript -->
                 </div>
             </div>
         </div>
 
+         <!-- Achievements Overlay -->
+        <div id="achievements-overlay" class="overlay">
+            <div id="achievements-content" class="overlay-content">
+                <h2>Achievements</h2>
+                <button id="close-achievements" class="clickable close-button">X</button>
+                <div id="achievement-list">
+                    <!-- Achievements will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievement Notification -->
+        <div id="achievement-notification" class="notification">
+            <h3>Achievement Unlocked!</h3>
+            <p id="notification-text"></p>
+        </div>
+
         <!-- Placeholder for other overlays like About -->
          <div id="about-overlay" class="overlay">
-            <div id="about-content">
+            <div id="about-content" class="overlay-content">
                 <h2>About</h2>
-                <p>A simple pixel clicker game!</p>
+                <p>A cool pixel clicker game!</p>
                 <button id="close-about" class="clickable close-button">X</button>
             </div>
         </div>
@@ -56,3 +74,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
